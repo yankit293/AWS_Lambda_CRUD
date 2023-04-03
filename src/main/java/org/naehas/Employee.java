@@ -1,38 +1,27 @@
 package org.naehas;
 
-import com.google.gson.Gson;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+@DynamoDBTable(tableName = "Employees")
 public class Employee {
     /*
      * Instance variables: • Employee Name - String • Employee ID - int • Work Type-
      * char • Wage - double
      */
+    @DynamoDBAttribute(attributeName = "empName")
     private String empName;
+    @DynamoDBHashKey(attributeName = "empId")
     private int empId;
+    @DynamoDBAttribute(attributeName = "workType")
     private String workType;
+    @DynamoDBAttribute(attributeName = "wageBeforeTax")
     private double wageBeforeTax;
+    @DynamoDBAttribute(attributeName = "wageAfterTax")
     private double wageAfterTax;
 
-    public Employee(String empName, int empId, String workType, double wageBeforeTax) {
-        this.empName = empName;
-        this.empId = empId;
-        this.workType = workType;
-        this.wageBeforeTax = wageBeforeTax;
-        this.wageAfterTax = calculateTaxWage(workType.charAt(0), wageBeforeTax);
-    }
-    public Employee(String json){
-        Gson gson = new Gson();
-        Employee tmpEmp = gson.fromJson(json, Employee.class);
-        this.empId = tmpEmp.empId;
-        this.empName = tmpEmp.empName;
-        this.workType = tmpEmp.workType;
-        this.wageBeforeTax = tmpEmp.wageBeforeTax;
-        this.wageAfterTax = calculateTaxWage(tmpEmp.workType.charAt(0), tmpEmp.wageBeforeTax);
-    }
-
-    public String toString(){
-        return new Gson().toJson(this);
-    }
     public String getEmpName() {
         return empName;
     }
@@ -72,15 +61,16 @@ public class Employee {
     public void setWageBeforeTax(double wageBeforeTax) {
         this.wageBeforeTax = wageBeforeTax;
     }
-    public static double calculateTaxWage(char workType, double wage) {
+    public static double calculateTaxWage(String workType, double wage) {
         CalculateWageAfterTax c = (w, r) -> w - (w*r)/100;
-        if (workType == 'T') {
-            return c.calculateTax(wage, 15);
-        } else if (workType == 'C') {
-            return c.calculateTax(wage, 18);
-        } else if (workType == 'F') {
-            double benifits = wage * 10 / 100;
-            return c.calculateTax(wage, 20) - benifits;
+        switch (workType) {
+            case "T":
+                return c.calculateTax(wage, 15);
+            case "C":
+                return c.calculateTax(wage, 18);
+            case "F":
+                double benifits = wage * 10 / 100;
+                return c.calculateTax(wage, 20) - benifits;
 
         }
         return -1;

@@ -4,7 +4,7 @@ Resources:
     Properties:
       Timeout: 20
       MemorySize: 512
-      Handler: org.naehas.EmployeeLambdaHandler::handleRequest
+      Handler: org.naehas.PayRollLambdaHandler::handleRequest
       CodeUri: C:\Users\HP\Documents\Projects\payroll
       Runtime: java8
       Architectures:

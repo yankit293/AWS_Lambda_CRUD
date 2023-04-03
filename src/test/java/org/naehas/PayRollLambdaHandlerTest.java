@@ -5,9 +5,9 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple EmployeeLambdaHandler.
+ * Unit test for simple PayRollLambdaHandler.
  */
-public class EmployeeLambdaHandlerTest
+public class PayRollLambdaHandlerTest
     extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class EmployeeLambdaHandlerTest
      *
      * @param testName name of the test case
      */
-    public EmployeeLambdaHandlerTest(String testName )
+    public PayRollLambdaHandlerTest(String testName )
     {
         super( testName );
     }
@@ -25,7 +25,7 @@ public class EmployeeLambdaHandlerTest
      */
     public static Test suite()
     {
-        return new TestSuite( EmployeeLambdaHandlerTest.class );
+        return new TestSuite( PayRollLambdaHandlerTest.class );
     }
 
     /**
