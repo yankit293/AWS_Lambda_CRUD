@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbeec270-d002-45dd-9157-9523a28b6c13" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.aws-sam/temp-template.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.aws-sam/temp-template.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/naehas/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/naehas/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/naehas/EmployeeLambdaHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/naehas/PayRollLambdaHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/naehas/EmployeeLambdaHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/naehas/PayRollLambdaHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/naehas/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/naehas/EmployeeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +35,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;payroll&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "payroll",
+    "ignore.virus.scanning.warn.message": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="AWS Lambda.getEmployee">
     <configuration name="[Local] PayRollLambdaHandler" type="aws.lambda" factoryName="Local" temporary="true" nameIsGenerated="true">
       <option name="credentialProviderId" value="profile:default" />
@@ -133,7 +131,7 @@
       <option name="templateFile" />
       <option name="timeout" value="20" />
       <option name="useTemplate" value="false" />
-      <option name="input" value="{&#10;}" />
+      <option name="input" value="{&#10;  &quot;httpMethod&quot;: &quot;GET&quot;,&#10;  &quot;pathParameters&quot;: {&#10;    &quot;empId&quot;: 1001&#10;  }&#10;}" />
       <option name="inputIsFile" value="false" />
       <sam>
         <option name="additionalBuildArgs" value="" />

@@ -22,6 +22,9 @@ public class PayRollLambdaHandler implements RequestHandler<APIGatewayProxyReque
 
             case "GET":
                 if (request.getPathParameters() != null) {
+                    if(request.getPathParameters().get("wage") != null){
+                        return employeeService.getEmployeesWithHigherWageThan(request, context);
+                    }
                     return employeeService.getEmployeeById(request, context);
                 }
                 return employeeService.getEmployees(request, context);
